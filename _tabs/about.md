@@ -6,11 +6,13 @@ order: 4
 
 # Paucitic
 ---
-`pau·ci·ty
+```
+pau·ci·ty
 /ˈpôsədē/
 noun
 the presence of something only in small or insufficient quantities or amounts; scarcity.
-"a paucity of information"`
+"a paucity of information"
+```
 
 Although I have never seen the term "paucitic" used before, I believe it to be a variation of "paucity." The name of this blog is thus due to my very scarce amount of book reviews.
 
