@@ -1,7 +1,7 @@
 ---
 title: We Were Liars by E. Lockhart
 description: A revolution. An accident. A secret.
-author: Pranjal Adhikari
+author: "Pranjal Adhikari"
 date: 2024-08-25 22:22:00 -5000
 category: [Book Review]
 tags: [Young Adult, Mystery, Contemporary, Fiction, Romance, Thriller, Mystery, Audiobook, Realistic Fiction, Teen]
