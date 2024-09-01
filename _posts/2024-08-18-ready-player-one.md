@@ -1,7 +1,7 @@
 ---
 title: Ready Player One by Ernest Cline
 description: IN THE YEAR 2044, reality is an ugly place.
-author: "Pranjal Adhikari"
+author: ["Pranjal Adhikari"]
 date: 2024-08-18 19:21:00 -5000
 category: [Book Review]
 tags: [Science Fiction, Fiction, Young Adult, Fantasy, Dystopia, Audiobook, Adventure, Fantasy, Cyberpunk, Adult]
