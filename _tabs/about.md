@@ -10,7 +10,7 @@ noun
 the presence of something only in small or insufficient quantities or amounts; scarcity.
 "a paucity of information"
 ```
-
+ 
 Although I have never seen the term "paucitic" used before, I believe it to be a variation of "paucity." The name of this blog is thus due to my very scarce amount of book reviews.
 
 This blog features my book reviews which I submit to the Johnson County Public Library, Samaritan website as well. 
