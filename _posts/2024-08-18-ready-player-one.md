@@ -4,22 +4,28 @@ description: IN THE YEAR 2044, reality is an ugly place.
 author: Pranjal Adhikari
 date: 2024-08-18 19:21:00 -5000
 category: [Book Review]
-tags: [Science Fiction, Fiction, Young Adult, Fantasy, Dystopia, Audiobook, Adventure, Science Fiction, Fantasy, Cyberpunk, Adult]
+tags: [Science Fiction, Fiction, Young Adult, Fantasy, Dystopia, Audiobook, Adventure, Fantasy, Cyberpunk, Adult]
 ---
-# TL;WR 
+## TL;WR 
 (Too Long; Won’t Read)
 
 The book’s good, with slight plot holes that aren’t detrimental to the enjoyment of reading it. I would give the novel 5/5 stars. If the synopsis even just slightly interests you, please do give it a read and stick with it for around 10 chapters.
 
-# LONGER REVIEW
+## LONGER REVIEW
 
 Ready Player One was an absolutely fantastic dystopian Sci-Fi read filled with countless references to old school videogames, movies, books, and media in general.
 
-## Summary: 
+### Summary: 
 
-The year is 2044 and there are problems. Big ones. There’s an ongoing energy crisis, real estate prices have skyrocketed, the climate has changed far too much... and one big, bad company called the IOI owns 99% of everything. There’s only one thing that a broke teenage kid living in his aunt’s RV stack (as shown in the cover) can do— participate in the Hunt! The owner of the biggest virtual reality simulation in human history died and what did that oddball leave in his will? The winner of his virtual reality contest riddled with clues from ‘80s pop culture will get full rights to his virtual reality company and his multi-billion dollar fortune. Except… nobody’s been able to solve even just the first riddle yet, after 5 whole years. Wade Watts, the broke teenage kid living in his aunt’s RV stack mentioned earlier, is one of the millions participating in the Hunt. Wade is suddenly brought into the international limelight when he shows up as the first person on the contest’s Scoreboard. What will Wade do in the virtual world of OASIS as the Hunt suddenly regains vigor? How will Wade deal with the IOI as they try to take control of the OASIS? Will Wade find hope? Love? Perseverance? Buzz cuts? Find out in this wonderful Sci-Fi novel by Ernest Cline!
+The year is 2044 and there are problems. Big ones. There’s an ongoing energy crisis, real estate prices have skyrocketed, the climate has changed far too much... and one big, bad company called the IOI owns 99% of everything. There’s only one thing that a broke teenage kid living in his aunt’s RV stack (as shown in the cover) can do— participate in the Hunt! 
 
-## Opinion:
+The owner of the biggest virtual reality simulation in human history died and what did that oddball leave in his will? The winner of his virtual reality contest riddled with clues from ‘80s pop culture will get full rights to his virtual reality company and his multi-billion dollar fortune. Except… nobody’s been able to solve even just the first riddle yet, after 5 whole years. 
+
+Wade Watts, the broke teenage kid living in his aunt’s RV stack mentioned earlier, is one of the millions participating in the Hunt. Wade is suddenly brought into the international limelight when he shows up as the first person on the contest’s Scoreboard. 
+
+What will Wade do in the virtual world of OASIS as the Hunt suddenly regains vigor? How will Wade deal with the IOI as they try to take control of the OASIS? Will Wade find hope? Love? Perseverance? Buzz cuts? Find out in this wonderful Sci-Fi novel by Ernest Cline!
+
+### Opinion:
 
 I loved the premise and execution of the plot. I have read other novels with virtual reality gaming being the key part of the story, though they were mostly online LitRPGs. Seeing a published, physical book with such a topic was quite the surprise for me. The main difference from my online readings and this book was that books online had more of a focus on the leveling system and artifacts/equipment. This one was more focused on the overall plot than the nitty gritty gaming details. 
 
