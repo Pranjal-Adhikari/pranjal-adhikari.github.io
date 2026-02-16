@@ -7,11 +7,11 @@ tags: [HTML, CSS, JavaScript, coding, web design]
 ---
 [Scanlateanator](https://pranjal-adhikari.github.io/personal-projects/scanlateanator) is a specialized web application I designed for basic manga scanlation. Manga scanlation is the process of translating and editing manga pages for different languages. This web app is designed as a tool to aid up-and-coming beginners in scanlating... **without** having to download or pay for an application. It includes brush features, text management with custom font uploads, layering, multi-page management, and an undo/redo history on a per-page basis. 
 
-This article explores the technical decisions, challenges, and solutions that were involved as I created this single-page web application.
+This article discusses the technical decisions, challenges, and solutions that I faced/made as I created this single-page web application.
 
 ## The Core Problem
 
-Manga scanlation involves several tedious steps: removing original text from speech bubbles (typically by painting them white), adding translated text with proper formatting (often with unique fonts typically not offered for free by most web-based image editors), managing multiple pages simultaneously, constantly reworking edits, and exporting the final results in a filetype that is suitable for the user's needs. Traditional solutions require complex desktop software with steep learning curves. My goal was to create something simpler, faster, and accessible directly in the browser.
+Manga scanlation involves several tedious steps: removing original text from speech bubbles (typically by brushing over them in white), adding translated text with proper formatting (often with unique fonts typically not offered for free by most web-based image editors), managing multiple pages simultaneously, constantly reworking edits, and then exporting the final results in a filetype that is suitable for the user's needs. Typical scanlation requires complex desktop software (such as Adobe Photoshop and GIMP) with steep learning curves. My goal was to create something simpler, faster, and far more accessible directly in the browser.
 
 ## Architecture Overview
 
@@ -21,7 +21,7 @@ The application is built as a pure client-side web app with three main files:
 - **script.js** (67KB): For the logic and canvas manipulation
 - **styles.css** (24KB): Visual styling with a dark VSCode-inspired theme
 
-This vanilla JavaScript approach avoids framework overhead and keeps the entire application lightweight and fast. There are no build processes. You can simply open it in a browser and start editing.
+This vanilla JavaScript approach avoids framework overhead and keeps the entire application lightweight and fast. There are no build processes, because this is vanilla JS with HTML+CSS for theming and structure. Due to this, you can simply open it in a browser and start editing.
 
 ## The Canvas System
 
@@ -34,9 +34,9 @@ The application uses two HTML5 canvas elements stacked on top of each other:
 1. **Image Canvas**: This displays the original manga page (it's never modified directly)
 2. **Edit Canvas**: This stores brush and eraser strokes with transparency
 
-Text elements are implemented as HTML divs with absolute positioning, which allows for rich formatting and easy manipulation without having to deal with complex canvas text rendering.
+Text elements are implemented as HTML divs with absolute positioning, which allows for rich formatting (italics, boldening, colors, font size, etc.) and easy manipulation without having to deal with complex canvas text rendering.
 
-This is also very important for performance. When a user paints with the brush tool, only the edit canvas is modified. When they add text, it's rendered as a DOM element that can be styled with CSS and easily repositioned. I've found a hybrid approach like this provides the best of both worlds.
+This is also very important for performance. When a user paints with the brush tool, only the edit canvas is modified. When they add text, it's rendered as a DOM element that can be styled with CSS and easily repositioned. I've found a hybrid approach like this provides the best of both worlds rather than one over the other.
 
 ### Canvas Context Configs
 
@@ -62,13 +62,13 @@ Simply put, the brush tool uses a line-drawing algorithm that creates additions 
 // This prevents gaps in fast strokes
 ```
 
-The eraser works by setting `globalCompositeOperation` to `'destination-out'`, which removes pixels instead of adding them. This is a fun way to use the canvas compositing modes because it avoids having to track what needs to be erased.
+The eraser works by setting `globalCompositeOperation` to `'destination-out'`, which removes pixels instead of adding them. This is a fun (and less memory-intesive!) way to use the canvas compositing modes because it avoids having to track what needs to be erased.
 
 ### Stroke Optimization
 
-One of the trickiest performance challenges was the undo/redo system. I faced so many problems with this. Storing the entire canvas state for every action would quickly consume a lot of memory, especially for high-resolution images (ex. 2000x3000 pages). I was fretting over memory consumption, constantly looking at Safari's Page Resources timeline.
+One of the trickiest performance challenges was the undo/redo system. I faced so many problems with this, ranging from forgetting a bracket in my script which took down the whole operation to having to completely rework my undo/redo stacking system. Storing the entire canvas state for every action would quickly consume a lot of memory, especially for high-resolution images (ex. 2000x3000 pages). Throughout Scanlateanator's development, I was fretting over memory consumption left and right, constantly looking at Safari's Page Resources timeline that kept telling me—to an insanely aggravating extent—how much "high" CPU usage there was.
 
-I was breathing, eating, and dreaming about optimization. Thus, while in that state and scrolling around Stack Overflow and Reddit threads, I stumbled onto an interesting solution: **region-based state storage**. Instead of saving the entire canvas, the app calculates the bounding box of the affected area and stores only that region (!!!):
+Optimization was my savior, optimization was my enemy. It was the path at the end of the tunnel, yet it was also the walls of the never-ending tunnel. I was breathing, eating, and dreaming about optimization. Thus, while in that state and scrolling around Stack Overflow and Reddit threads, I stumbled onto an interesting solution: **region-based state storage**. Instead of saving the entire canvas, the app calculates the bounding box of the affected area and stores only that region (!!!):
 
 ```javascript
 const getStrokeBounds = (points, size, padding) => {
@@ -98,7 +98,9 @@ const compressRegionToBlob = async (imageData) => {
 };
 ```
 
-There is an issue, though. By my logic, since WebP is a more modern filetype for images, it should show a more notice file size reduction compared to raw PNG storage while maintaining visual quality. However, I've found that this supposed benefit doesn't exist for smaller page edits, which I find quite odd. The app detects WebP support at startup and falls back to PNG for older browsers (which is also an interesting piece of code, because I believe I've coded it correctly, but it keeps falling back on PNG even on Chrome).
+There is an issue, though. By my logic, since WebP is a more modern filetype for images, it should show a more notice file size reduction compared to raw PNG storage while maintaining visual quality... right? Alas, I've found that this supposed benefit doesn't exist for smaller page edits, which I find quite odd. 
+
+The app detects WebP support at startup and falls back to PNG for older browsers (which is also an interesting piece of code, because I believe I've coded it correctly, but it keeps falling back on PNG, even on Chrome).
 
 ## Text System
 
@@ -265,7 +267,7 @@ The mobile experience is a landing page that:
 - Displays screenshots of the UIX
 - Encourages users to visit on a desktop
 
-I made this decision for my own sake, as well as to prioritize feature accessibility. While that sounds contradictory, it makes sense in my mind: I don't want to give users a badly-optimized time on mobile because buttons are too small, the navigation bar decided to stack, finger movements aren't being tracked, and so on. The tool genuinely requires a mouse and keyboard to be usable, so attempting to shoehorn it onto touch devices would result in a frustrating experience.
+I made this decision for my own sake, as well as to prioritize feature accessibility. While that sounds contradictory, it makes sense in my mind: I don't want to give users a badly-optimized time on mobile because buttons are too small, the navigation bar decided to stack, finger movements aren't being tracked, they've having a hard time navigating, and so on. The tool genuinely requires a mouse and keyboard to be usable, so attempting to shoehorn it onto touch devices would result in a frustrating experience.
 
 The media query switches at 1024px width:
 
@@ -282,7 +284,7 @@ Several techniques keep the application functioning as efficiently as I can poss
 
 ### Image Size Limits
 
-Images over 4096px in either dimension are automatically downscaled. I realize most manga pages are not this resolution—typically far smaller—but I want to keep everything open to possibility. The downscaling at 4000px prevents memory issues on large manga pages while maintaining sufficient resolution for editing.
+Images over 4096px in either dimension are automatically downscaled. I realize most manga pages are not this resolution—typically far smaller—but I want to keep everything open to possibility. The downscaling at 4096px prevents memory issues on large manga pages while maintaining sufficient resolution for editing.
 
 ### Debouncing Text Modification Updates
 
@@ -421,18 +423,19 @@ However, I believe that the current feature set covers most of the typical scanl
 
 ## Inspirations
 
-Of course, I did not come with this idea for a web-based scanlation app by myself. I was heavily inspired by Adobe Photoshop, Pixlr, GIMP, and—most importantly—by [Scanlate.io](https://scanlate.io). Scanlate.io is a webpage that is almost one-of-a-kind in what it does. It enables users to brush out speech bubbles, erase brushes, add preset fonts, and work with multiple pages and multiple projects after logging in. 
-Honestly, I am in awe of the ingenuity and coding decisions mad ethere. However, there were some qualms I had with the website. 
+Of course, I did not come up with this idea for a web-based scanlation app by myself. I was heavily inspired by Adobe Photoshop, Pixlr, GIMP, and—most importantly—by [Scanlate.io](https://scanlate.io). Scanlate.io is a webpage that is almost one-of-a-kind in what it does. It enables users to brush out speech bubbles, erase brushes, add preset fonts, and work with multiple pages and multiple projects after logging in.
 
-Firstly, there was a severe lack of editing features. Users could **not**:
+Honestly, I am in awe of the ingenuity and coding decisions made for the app. However, there were some qualms I had with the website. 
+
+Firstly, there was a severe lack of editing features. ***Users could not***:
 
 - **Upload custom fonts**
 - **Undo/Redo**
-- **Work on multiple pages without loggin in**
+- **Work on multiple pages without logging in**
 - **Zoom/Pan**
 - **Export to different file formats**
 
-Secondly, I found the UI to be overly simple/old. As thus, I set out to create my own version. 
+Secondly, I found the UI to be overly simple and outdated. With heavy inspirations and expectations, I set out to create my own version. 
 
 ## Conclusion
 
